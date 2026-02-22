@@ -1,0 +1,242 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:serial_number",
+ "creation": "2026-02-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "serial_number",
+  "device_profile",
+  "status",
+  "column_break_main",
+  "firmware",
+  "certificate",
+  "mac_address",
+  "section_network",
+  "network_credentials",
+  "section_thingsboard",
+  "tb_device_id",
+  "column_break_tb",
+  "tb_access_token",
+  "section_assignment",
+  "customer",
+  "project",
+  "column_break_assignment",
+  "subscription",
+  "contract",
+  "asset",
+  "section_location",
+  "location_name",
+  "gps_latitude",
+  "column_break_location",
+  "gps_longitude",
+  "installation_date",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Serial Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "device_profile",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Device Profile",
+   "options": "IoT Device Profile",
+   "reqd": 1
+  },
+  {
+   "default": "In Stock",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "In Stock\nProvisioned\nDeployed\nMaintenance\nDecommissioned\nFaulty"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "firmware",
+   "fieldtype": "Link",
+   "label": "Firmware",
+   "options": "IoT Firmware"
+  },
+  {
+   "fieldname": "certificate",
+   "fieldtype": "Link",
+   "label": "Certificate",
+   "options": "IoT Certificate"
+  },
+  {
+   "fieldname": "mac_address",
+   "fieldtype": "Data",
+   "label": "MAC Address"
+  },
+  {
+   "fieldname": "section_network",
+   "fieldtype": "Section Break",
+   "label": "Network Credentials"
+  },
+  {
+   "fieldname": "network_credentials",
+   "fieldtype": "Table",
+   "label": "Network Credentials",
+   "options": "IoT Network Credential"
+  },
+  {
+   "fieldname": "section_thingsboard",
+   "fieldtype": "Section Break",
+   "label": "ThingsBoard"
+  },
+  {
+   "fieldname": "tb_device_id",
+   "fieldtype": "Data",
+   "label": "ThingsBoard Device ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_tb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tb_access_token",
+   "fieldtype": "Data",
+   "label": "ThingsBoard Access Token",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_assignment",
+   "fieldtype": "Section Break",
+   "label": "Assignment"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "column_break_assignment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "subscription",
+   "fieldtype": "Link",
+   "label": "Subscription",
+   "options": "Subscription"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Contract"
+  },
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset",
+   "options": "Asset"
+  },
+  {
+   "fieldname": "section_location",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "location_name",
+   "fieldtype": "Data",
+   "label": "Location Name"
+  },
+  {
+   "fieldname": "gps_latitude",
+   "fieldtype": "Float",
+   "label": "GPS Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "column_break_location",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gps_longitude",
+   "fieldtype": "Float",
+   "label": "GPS Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation Date"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-02-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "IoT Inventory",
+ "name": "IoT Device",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IoT Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Sales User"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

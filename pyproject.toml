@@ -1,0 +1,17 @@
+[project]
+name = "erpnext_iot_inventory"
+version = "0.1.0"
+description = "IoT Device Inventory Management for ERPNext"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "2itea" },
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench]
+app-name = "erpnext_iot_inventory"

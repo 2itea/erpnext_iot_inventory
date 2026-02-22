@@ -1,0 +1,264 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:serial_number",
+ "creation": "2026-02-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "serial_number",
+  "device_profile",
+  "status",
+  "column_break_main",
+  "gw_eui",
+  "mac_address",
+  "gateway_role",
+  "section_network",
+  "mqtt_server",
+  "mqtt_user",
+  "column_break_network",
+  "mqtt_password",
+  "mesh_root_key",
+  "section_sim",
+  "sim_card",
+  "column_break_sim",
+  "os_version",
+  "firmware",
+  "section_assignment",
+  "customer",
+  "project",
+  "column_break_assignment",
+  "subscription",
+  "contract",
+  "section_location",
+  "location_name",
+  "gps_latitude",
+  "column_break_location",
+  "gps_longitude",
+  "installation_date",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Serial Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "device_profile",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Device Profile",
+   "options": "IoT Device Profile"
+  },
+  {
+   "default": "In Stock",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "In Stock\nDeployed\nMaintenance\nDecommissioned\nFaulty"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gw_eui",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Gateway EUI",
+   "length": 16
+  },
+  {
+   "fieldname": "mac_address",
+   "fieldtype": "Data",
+   "label": "MAC Address"
+  },
+  {
+   "fieldname": "gateway_role",
+   "fieldtype": "Select",
+   "label": "Gateway Role",
+   "options": "\nBorder\nMesh"
+  },
+  {
+   "fieldname": "section_network",
+   "fieldtype": "Section Break",
+   "label": "Network Configuration"
+  },
+  {
+   "fieldname": "mqtt_server",
+   "fieldtype": "Data",
+   "label": "MQTT Server"
+  },
+  {
+   "fieldname": "mqtt_user",
+   "fieldtype": "Data",
+   "label": "MQTT User"
+  },
+  {
+   "fieldname": "column_break_network",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mqtt_password",
+   "fieldtype": "Password",
+   "label": "MQTT Password"
+  },
+  {
+   "depends_on": "eval:doc.gateway_role=='Mesh'",
+   "fieldname": "mesh_root_key",
+   "fieldtype": "Password",
+   "label": "Mesh Root Key"
+  },
+  {
+   "fieldname": "section_sim",
+   "fieldtype": "Section Break",
+   "label": "Connectivity"
+  },
+  {
+   "fieldname": "sim_card",
+   "fieldtype": "Link",
+   "label": "SIM Card",
+   "options": "IoT SIM Card"
+  },
+  {
+   "fieldname": "column_break_sim",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "os_version",
+   "fieldtype": "Data",
+   "label": "OS Version"
+  },
+  {
+   "fieldname": "firmware",
+   "fieldtype": "Link",
+   "label": "Firmware",
+   "options": "IoT Firmware"
+  },
+  {
+   "fieldname": "section_assignment",
+   "fieldtype": "Section Break",
+   "label": "Assignment"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "column_break_assignment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "subscription",
+   "fieldtype": "Link",
+   "label": "Subscription",
+   "options": "Subscription"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Contract"
+  },
+  {
+   "fieldname": "section_location",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "location_name",
+   "fieldtype": "Data",
+   "label": "Location Name"
+  },
+  {
+   "fieldname": "gps_latitude",
+   "fieldtype": "Float",
+   "label": "GPS Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "column_break_location",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gps_longitude",
+   "fieldtype": "Float",
+   "label": "GPS Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation Date"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-02-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "IoT Inventory",
+ "name": "IoT Gateway",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IoT Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Sales User"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

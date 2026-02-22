@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:iccid",
+ "creation": "2026-02-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "iccid",
+  "imsi",
+  "msisdn",
+  "column_break_main",
+  "carrier",
+  "supplier",
+  "status",
+  "section_data",
+  "apn",
+  "data_plan",
+  "column_break_data",
+  "monthly_cost",
+  "activation_date",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "iccid",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "ICCID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "imsi",
+   "fieldtype": "Data",
+   "label": "IMSI"
+  },
+  {
+   "fieldname": "msisdn",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "MSISDN (Phone Number)"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "carrier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Carrier"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nSuspended\nDeactivated\nLost"
+  },
+  {
+   "fieldname": "section_data",
+   "fieldtype": "Section Break",
+   "label": "Data Plan"
+  },
+  {
+   "fieldname": "apn",
+   "fieldtype": "Data",
+   "label": "APN"
+  },
+  {
+   "fieldname": "data_plan",
+   "fieldtype": "Data",
+   "label": "Data Plan"
+  },
+  {
+   "fieldname": "column_break_data",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "monthly_cost",
+   "fieldtype": "Currency",
+   "label": "Monthly Cost"
+  },
+  {
+   "fieldname": "activation_date",
+   "fieldtype": "Date",
+   "label": "Activation Date"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-02-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "IoT Inventory",
+ "name": "IoT SIM Card",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IoT Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

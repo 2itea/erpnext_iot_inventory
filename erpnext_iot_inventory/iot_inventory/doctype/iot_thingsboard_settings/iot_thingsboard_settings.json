@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "creation": "2026-02-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "instance_url",
+  "username",
+  "password",
+  "column_break_main",
+  "auto_sync",
+  "sync_interval",
+  "default_device_type",
+  "section_actions",
+  "sync_all_button"
+ ],
+ "fields": [
+  {
+   "fieldname": "instance_url",
+   "fieldtype": "Data",
+   "label": "ThingsBoard Instance URL",
+   "description": "e.g. https://thingsboard.example.com"
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "Username"
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_sync",
+   "fieldtype": "Check",
+   "label": "Enable Auto Sync"
+  },
+  {
+   "default": "60",
+   "fieldname": "sync_interval",
+   "fieldtype": "Int",
+   "label": "Sync Interval (minutes)",
+   "description": "Interval for automatic synchronization"
+  },
+  {
+   "default": "default",
+   "fieldname": "default_device_type",
+   "fieldtype": "Data",
+   "label": "Default Device Type",
+   "description": "Default device type name used in ThingsBoard"
+  },
+  {
+   "fieldname": "section_actions",
+   "fieldtype": "Section Break",
+   "label": "Actions"
+  },
+  {
+   "fieldname": "sync_all_button",
+   "fieldtype": "Button",
+   "label": "Sync All Devices Now"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-02-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "IoT Inventory",
+ "name": "IoT ThingsBoard Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "IoT Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

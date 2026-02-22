@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "format:{device_profile}-{version}",
+ "creation": "2026-02-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "device_profile",
+  "version",
+  "column_break_main",
+  "status",
+  "release_date",
+  "section_file",
+  "firmware_file",
+  "column_break_file",
+  "checksum_sha256",
+  "section_notes",
+  "release_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "device_profile",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Device Profile",
+   "options": "IoT Device Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Version",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nStable\nDeprecated"
+  },
+  {
+   "fieldname": "release_date",
+   "fieldtype": "Date",
+   "label": "Release Date"
+  },
+  {
+   "fieldname": "section_file",
+   "fieldtype": "Section Break",
+   "label": "Firmware File"
+  },
+  {
+   "fieldname": "firmware_file",
+   "fieldtype": "Attach",
+   "label": "Firmware File"
+  },
+  {
+   "fieldname": "column_break_file",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "checksum_sha256",
+   "fieldtype": "Data",
+   "label": "Checksum SHA256",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Release Notes"
+  },
+  {
+   "fieldname": "release_notes",
+   "fieldtype": "Text Editor",
+   "label": "Release Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-02-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "IoT Inventory",
+ "name": "IoT Firmware",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IoT Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
