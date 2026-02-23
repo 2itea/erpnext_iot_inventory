@@ -27,8 +27,9 @@
   "network_credentials",
   "section_thingsboard",
   "tb_device_id",
-  "column_break_tb",
   "tb_access_token",
+  "column_break_tb",
+  "tb_client_access_token",
   "section_assignment",
   "customer",
   "project",
@@ -178,8 +179,14 @@
   {
    "fieldname": "tb_access_token",
    "fieldtype": "Data",
-   "label": "ThingsBoard Access Token",
-   "read_only": 1
+   "label": "TB Access Token (2itea)",
+   "description": "Token on 2itea ThingsBoard instance"
+  },
+  {
+   "fieldname": "tb_client_access_token",
+   "fieldtype": "Data",
+   "label": "TB Access Token (Client)",
+   "description": "Token on client ThingsBoard instance"
   },
   {
    "fieldname": "section_assignment",
