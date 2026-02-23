@@ -13,6 +13,16 @@
   "gw_eui",
   "mac_address",
   "gateway_role",
+  "section_supplier",
+  "has_supplier_info",
+  "supplier",
+  "column_break_supplier",
+  "supplier_serial_number",
+  "supplier_part_number",
+  "purchase_date",
+  "column_break_supplier2",
+  "purchase_order",
+  "warranty_expiry",
   "section_network",
   "mqtt_server",
   "mqtt_user",
@@ -84,6 +94,64 @@
    "fieldtype": "Select",
    "label": "Gateway Role",
    "options": "\nBorder\nMesh"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_supplier",
+   "fieldtype": "Section Break",
+   "label": "Supplier Information"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_supplier_info",
+   "fieldtype": "Check",
+   "label": "Has Supplier Information"
+  },
+  {
+   "depends_on": "eval:doc.has_supplier_info",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "column_break_supplier",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.has_supplier_info",
+   "fieldname": "supplier_serial_number",
+   "fieldtype": "Data",
+   "label": "Supplier Serial Number"
+  },
+  {
+   "depends_on": "eval:doc.has_supplier_info",
+   "fieldname": "supplier_part_number",
+   "fieldtype": "Data",
+   "label": "Supplier Part Number"
+  },
+  {
+   "depends_on": "eval:doc.has_supplier_info",
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "column_break_supplier2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.has_supplier_info",
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order"
+  },
+  {
+   "depends_on": "eval:doc.has_supplier_info",
+   "fieldname": "warranty_expiry",
+   "fieldtype": "Date",
+   "label": "Warranty Expiry"
   },
   {
    "fieldname": "section_network",
