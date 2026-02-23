@@ -3,8 +3,16 @@ from frappe import _
 
 
 def after_install():
+	setup_module_def()
 	create_iot_manager_role()
 	create_default_profiles()
+
+
+def setup_module_def():
+	"""Ensure Module Def has the correct app_name."""
+	if frappe.db.exists("Module Def", "IoT Inventory"):
+		frappe.db.set_value("Module Def", "IoT Inventory", "app_name", "erpnext_iot_inventory")
+		frappe.db.commit()
 
 
 def create_iot_manager_role():
