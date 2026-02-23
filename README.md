@@ -14,16 +14,18 @@ Manage your IoT fleet (sensors, gateways, SIM cards, certificates) directly in E
 - **IoT Certificate** - Manage TLS/mTLS certificates with automatic expiry tracking
 - **IoT ThingsBoard Settings** - Sync devices to/from ThingsBoard via REST API
 - **Customer Dashboard** - See IoT Device and Gateway counts on each Customer
+- **Supplier Information** - Track supplier serial numbers, part numbers, purchase orders, and warranty on Devices and Gateways
 
 ## ERPNext Integration
 
 Devices and gateways link to native ERPNext DocTypes:
 - **Customer** - Client assignment
+- **Supplier** - Supplier of the device/gateway + SIM card operators
+- **Purchase Order** - Link to the original purchase order
 - **Subscription** / **Contract** - Service agreements
 - **Asset** - Fixed asset tracking
 - **Project** - Project association
 - **Item** - Device profiles link to purchasable items
-- **Supplier** - SIM card operators
 
 ## Installation
 
@@ -38,6 +40,22 @@ bench migrate
 1. The **IoT Manager** role is created automatically on install
 2. Two default device profiles are created (Generic LoRaWAN Sensor, RAK7268v2 Gateway)
 3. Configure **IoT ThingsBoard Settings** if you use ThingsBoard
+4. The **IoT Inventory** module appears on `/desk` after install
+
+## Supplier Information
+
+On IoT Device and IoT Gateway, tick **"Has Supplier Information"** to reveal:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| Supplier | Link | ERPNext Supplier |
+| Supplier Serial Number | Data | Manufacturer/supplier serial number |
+| Supplier Part Number | Data | Supplier part/SKU reference |
+| Purchase Date | Date | Date of purchase |
+| Purchase Order | Link | ERPNext Purchase Order |
+| Warranty Expiry | Date | End of warranty period |
+
+This section is collapsible and hidden by default to keep the form clean.
 
 ## Roles
 
