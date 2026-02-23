@@ -1,24 +1,22 @@
 {
  "charts": [],
- "content": "[{\"id\":\"hero\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>IoT Inventory</b></span>\",\"col\":12}},{\"id\":\"shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT Device\",\"col\":4}},{\"id\":\"shortcuts2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT Gateway\",\"col\":4}},{\"id\":\"shortcuts3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT Device Profile\",\"col\":4}}]",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>IoT Inventory</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT Device\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT Gateway\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT Device Profile\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT SIM Card\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT Certificate\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IoT Firmware\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters & Settings</b></span>\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Devices & Gateways\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Network & Connectivity\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}}]",
  "creation": "2026-02-22 00:00:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "network",
+ "icon": "integration",
  "idx": 0,
  "is_hidden": 0,
  "label": "IoT Inventory",
  "links": [
   {
-   "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
    "label": "Devices & Gateways",
    "link_count": 0,
-   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -56,12 +54,10 @@
    "type": "Link"
   },
   {
-   "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
    "label": "Network & Connectivity",
    "link_count": 0,
-   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -99,12 +95,10 @@
    "type": "Link"
   },
   {
-   "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
    "label": "Settings",
    "link_count": 0,
-   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
@@ -120,7 +114,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-02-22 00:00:00.000000",
+ "modified": "2026-02-23 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "IoT Inventory",
  "name": "IoT Inventory",
@@ -128,32 +122,49 @@
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
+ "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
  "sequence_id": 25.0,
  "shortcuts": [
   {
    "color": "Blue",
-   "doc_view": "List",
+   "format": "{} Deployed",
    "label": "IoT Device",
    "link_to": "IoT Device",
-   "stats_filter": "",
+   "stats_filter": "{\"status\": \"Deployed\"}",
    "type": "DocType"
   },
   {
    "color": "Green",
-   "doc_view": "List",
+   "format": "{} Deployed",
    "label": "IoT Gateway",
    "link_to": "IoT Gateway",
-   "stats_filter": "",
+   "stats_filter": "{\"status\": \"Deployed\"}",
    "type": "DocType"
   },
   {
-   "color": "Grey",
-   "doc_view": "List",
    "label": "IoT Device Profile",
    "link_to": "IoT Device Profile",
-   "stats_filter": "",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "label": "IoT SIM Card",
+   "link_to": "IoT SIM Card",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "format": "{} Expiring",
+   "label": "IoT Certificate",
+   "link_to": "IoT Certificate",
+   "stats_filter": "{\"status\": \"Active\"}",
+   "type": "DocType"
+  },
+  {
+   "label": "IoT Firmware",
+   "link_to": "IoT Firmware",
    "type": "DocType"
   }
  ],
