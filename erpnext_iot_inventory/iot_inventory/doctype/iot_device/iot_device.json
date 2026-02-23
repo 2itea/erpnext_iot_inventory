@@ -27,9 +27,13 @@
   "network_credentials",
   "section_thingsboard",
   "tb_device_id",
-  "tb_access_token",
   "column_break_tb",
-  "tb_client_access_token",
+  "tb_access_token",
+  "section_thingsboard_secondary",
+  "has_secondary_tb",
+  "tb_secondary_device_id",
+  "column_break_tb2",
+  "tb_secondary_access_token",
   "section_assignment",
   "customer",
   "project",
@@ -179,14 +183,36 @@
   {
    "fieldname": "tb_access_token",
    "fieldtype": "Data",
-   "label": "TB Access Token (2itea)",
-   "description": "Token on 2itea ThingsBoard instance"
+   "label": "ThingsBoard Access Token"
   },
   {
-   "fieldname": "tb_client_access_token",
+   "collapsible": 1,
+   "depends_on": "",
+   "fieldname": "section_thingsboard_secondary",
+   "fieldtype": "Section Break",
+   "label": "Secondary ThingsBoard Instance"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_secondary_tb",
+   "fieldtype": "Check",
+   "label": "Has Secondary ThingsBoard Instance"
+  },
+  {
+   "depends_on": "eval:doc.has_secondary_tb",
+   "fieldname": "tb_secondary_device_id",
    "fieldtype": "Data",
-   "label": "TB Access Token (Client)",
-   "description": "Token on client ThingsBoard instance"
+   "label": "Secondary TB Device ID"
+  },
+  {
+   "fieldname": "column_break_tb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.has_secondary_tb",
+   "fieldname": "tb_secondary_access_token",
+   "fieldtype": "Data",
+   "label": "Secondary TB Access Token"
   },
   {
    "fieldname": "section_assignment",
