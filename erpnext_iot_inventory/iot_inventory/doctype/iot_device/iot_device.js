@@ -47,76 +47,91 @@ frappe.ui.form.on("IoT Device", {
 });
 
 function _open_print_window(data) {
-	const { serial, qrcode_rc2, dev_eui, qr_png_b64 } = data;
+	const { serial, qrcode_rc2, dev_eui, qr_png_b64, logo_b64, ce_b64 } = data;
 
+	// Label layout matches serial_zd421.glabels template exactly:
+	// Size: 57.15mm × 31.75mm
+	// Logo:  left=3.68mm top=11.58mm  w=26.42mm h=8.56mm
+	// CE:    left=3.86mm top=22.99mm  w=14.88mm h=5.99mm
+	// QR:    left=32.05mm top=5.97mm  w=19.81mm h=19.81mm
+	// Text:  "Serial:" left=27.69mm top=25.04mm  value left=37.26mm top=25.12mm
 	const html = `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Étiquette ${serial}</title>
 <style>
-  @page { size: 57.15mm 31.75mm; margin: 0; }
+  @page {
+    size: 57.15mm 31.75mm;
+    margin: 0;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     width: 57.15mm;
     height: 31.75mm;
-    display: flex;
-    flex-direction: row;
-    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
     overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
   }
-  .qr-col {
-    width: 31.75mm;
-    height: 31.75mm;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1mm;
+  img { display: block; }
+  .logo {
+    position: absolute;
+    left: 3.68mm; top: 11.58mm;
+    width: 26.42mm; height: 8.56mm;
   }
-  .qr-col img { width: 29.75mm; height: 29.75mm; }
-  .info-col {
-    flex: 1;
-    padding: 2mm 2mm 2mm 1mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.2mm;
+  .ce {
+    position: absolute;
+    left: 3.86mm; top: 22.99mm;
+    width: 14.88mm; height: 5.99mm;
   }
-  .brand   { font-size: 5.5pt; color: #888; text-transform: uppercase; letter-spacing: 0.5pt; }
-  .serial  { font-size: 9pt; font-weight: bold; }
-  .rc2     { font-size: 6pt; color: #444; }
-  .lbl     { font-size: 5pt; color: #888; margin-top: 0.8mm; }
-  .deveui  { font-size: 5.5pt; font-family: monospace; letter-spacing: 0.2pt; }
+  .qr {
+    position: absolute;
+    left: 32.05mm; top: 5.97mm;
+    width: 19.81mm; height: 19.81mm;
+  }
+  .serial-label {
+    position: absolute;
+    left: 27.69mm; top: 25.04mm;
+    font-size: 5.5pt; font-weight: bold;
+    line-height: 1;
+  }
+  .serial-value {
+    position: absolute;
+    left: 37.26mm; top: 25.12mm;
+    font-size: 5.5pt;
+    line-height: 1;
+  }
 </style>
 </head>
 <body>
-  <div class="qr-col">
-    <img src="data:image/png;base64,${qr_png_b64}" />
-  </div>
-  <div class="info-col">
-    <div class="brand">2itea</div>
-    <div class="serial">${serial}</div>
-    <div class="rc2">${qrcode_rc2 || ""}</div>
-    <div class="lbl">DevEUI</div>
-    <div class="deveui">${dev_eui || "—"}</div>
-  </div>
+  <img class="logo" src="data:image/png;base64,${logo_b64 || ""}" />
+  <img class="ce"   src="data:image/png;base64,${ce_b64 || ""}" />
+  <img class="qr"   src="data:image/png;base64,${qr_png_b64}" />
+  <span class="serial-label">Serial:</span>
+  <span class="serial-value">${serial}</span>
 </body>
 </html>`;
 
-	const win = window.open("", "_blank", "width=350,height=250");
+	// Use Blob URL so window.onload fires reliably after all images are decoded
+	const blob = new Blob([html], { type: "text/html; charset=utf-8" });
+	const blobUrl = URL.createObjectURL(blob);
+	const win = window.open(blobUrl, "_blank");
+
 	if (!win) {
 		frappe.msgprint({
 			title: __("Popup bloquée"),
 			message: __("Autorisez les popups pour ce site, puis réessayez."),
 			indicator: "orange",
 		});
+		URL.revokeObjectURL(blobUrl);
 		return;
 	}
-	win.document.write(html);
-	win.document.close();
-	win.focus();
-	// Wait for image to render before triggering print dialog
-	win.onload = function () { win.print(); };
-	setTimeout(function () { win.print(); }, 600);
+
+	win.addEventListener("load", function () {
+		setTimeout(function () {
+			win.print();
+			URL.revokeObjectURL(blobUrl);
+		}, 300);
+	});
 }
